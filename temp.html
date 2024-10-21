@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+    <style>
+        body{
+            padding: 50px 100px;
+            background-color:  rgb(19, 2, 41);
+        }
+        h1{
+            text-align: center;
+            margin-top: 120px;
+            font-size: 50px;
+            color: white;
+        }
+        #containor{
+            font-size: 40px;
+            text-align: center;
+            margin-top: 100px;
+            color: white;
+
+
+        }
+        .input{
+            display: inline-block; 
+            font-weight: bold;
+            
+
+        }
+        .inp{
+            font-size: 30px;
+            font-weight: bold;
+            box-shadow: 5px 6px 10px #50d0f8;
+            border-radius: 10px;
+            background-color:  rgb(222, 248, 248);
+            color: black;
+
+
+        }
+        </style>
+</head>
+<body>
+    <h1>Temperature Convertor</h1>
+    <div id="containor">
+        <div class="input">
+            <label>Celsius</label><br>
+            <input type="number" value="0"  id="cel" class="inp">
+        </div>
+        <div class="input">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="feh" class="inp">
+        </div>
+    </div>
+    <script>
+         var cel = document.getElementById("cel");
+         var feh = document.getElementById("feh");
+
+         cel.addEventListener('input',function(){
+            let c= this.value;
+            let f = (c * 9/5) + 32;
+            if(!Number.isInteger(f)){
+                f=f.toFixed(4);
+            }
+            feh.value = f;
+         });
+
+         
+         feh.addEventListener('input',function(){
+            let f = this.value;
+            let c = (f - 32) *5/9;
+            if(!Number.isInteger(c)){
+                c=c.toFixed(4);
+            }  
+            cel.value = c;
+         });
+
+    </script>
+</body>
+
+</html>
